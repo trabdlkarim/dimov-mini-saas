@@ -1,8 +1,12 @@
+import { AuthButton } from "@/components/auth-button";
 import Link from "next/link";
 import { Suspense } from "react";
-import { AuthButton } from "@/components/auth-button";
 
-export default function Home() {
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const currentYear = new Date().getFullYear();
   return (
     <main className="min-h-screen flex flex-col items-center">
@@ -10,7 +14,7 @@ export default function Home() {
         <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
           <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
             <div className="flex gap-5 items-center font-semibold">
-              <Link href={"/"}>Mini SaaS</Link>
+              <Link href={"/dashboard"}>Dashboard</Link>
             </div>
             <Suspense>
               <AuthButton />
@@ -18,9 +22,7 @@ export default function Home() {
           </div>
         </nav>
         <div className="flex-1 flex flex-col gap-20 max-w-5xl p-5">
-          <main className="flex-1 flex flex-col gap-6 px-4">
-            <h2 className="font-medium text-xl mb-4">Welecome!</h2>
-          </main>
+          {children}
         </div>
 
         <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
