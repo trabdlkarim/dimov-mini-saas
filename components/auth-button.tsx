@@ -19,7 +19,7 @@ const { data: session, status } = useSession();
         <Link href="/auth/login">Login</Link>
       </Button>
       <Button asChild size="sm" variant={"default"}>
-        <Link href="#">Register</Link>
+        <Link href="/auth/sign-up">Register</Link>
       </Button>
     </div>
   );
