@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+This a mini dashboard built with **Next.js (App Router)**, **TypeScript**, **shadcn/ui**, **TanStack Query**, and **external JWT-based API authentication**.
+
+It provides full CRUD management for projects with server-side search, filtering and pagination.
+
+### Installation and Setup
+
+#### 1. Install dependencies
+
+First, install the project dependencies.
+
+```bash
+npm install
+```
+
+#### 2. Setup env variables
+
+Create a `.env` or `.env.local` file from  `.env.example`.
+
+```yaml
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+NEXTAUTH_SECRET=your-secret # Generate with 'openssl rand -base64 32' command.
+NEXTAUTH_URL=http://localhost:3000
+```
+
+#### 3. Run the backend api
+
+All data is fetched from an external backend API. So, your need to run the backend before running the development server here.
+Make sure to properly set this env variable, otherwise the app won't work.
+
+```yaml
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
+
+Please, you need to check out [the backend GitHub repository](https://github.com/trabdlkarim/dimov-mini-saas-api) and follow the instructions to run it before proceeding.
+
+#### 4. Run development server
+
+You can finally run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open now [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Authentication
 
-## Learn More
+- JWT authentication via external API
+- Session management using `next-auth`
+- Secure API requests using Bearer token
+- Protected routes
 
-To learn more about Next.js, take a look at the following resources:
+### Project Management (CRUD)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Create projects
+- Edit projects
+- Delete projects (with confirmation dialog)
+- View projects in data table
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Advanced DataTable
 
-## Deploy on Vercel
+- Server-side search
+- Server-side filtering by project status
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### UX Enhancements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Debounced live search
+- Optimistic UI updates via React Query
+- Toast notifications (Sonner)
+- Loading states without UI flicker
+- Confirmation dialogs for destructive actions
+
+## Live Demo
+
+Check out a [live demo](https://dimov-mini-saas.vercel.app/auth/login) of the app deployed on [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+![Preview](https://raw.githubusercontent.com/trabdlkarim/assets/main/dimov-mini-saas/dashboard-preview.png)
+
+### Credentials
+
+**Username:** user@test.com
+
+**Password:** Pass1234
