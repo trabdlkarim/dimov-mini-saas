@@ -26,7 +26,7 @@ NEXTAUTH_URL=http://localhost:3000
 
 #### 3. Run the backend api
 
-All data is fetched from an external backend API. So, your need to run the backend before running the development server here.
+All the data are fetched from an external backend API. So, you need to run the backend before running the development server here.
 Make sure to properly set this env variable, otherwise the app won't work.
 
 ```yaml
